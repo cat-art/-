@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+typedef struct bitnode    //¶þ²æÁ´±íµÄ´æ´¢½á¹¹
+{
+    int data;
+    struct bitnode *lchild,*rchild;
+}bitnode,*bitree;
+
+void tree(bitree *t)
+{
+    char ch;
+    scanf("%c",&ch);
+    if(ch=='#')
+    {
+        *t=NULL;
+    }
+    else {
+        if(!(*t=(bitnode *)malloc(sizeof(bitnode))))
+            exit(-2);
+        (*t)->data=ch;
+        tree(&(*t)->lchild);
+        tree(&(*t)->rchild);
+    }
+}
+void visit(char ch)
+{
+    printf("%c",ch);
+}
+void firstBT(bitree t)
+{
+    if(t)
+    {
+        visit(t->data);
+        firstBT(t->lchild);
+        firstBT(t->rchild);
+
+    }
+}
+void midBT(bitree t)
+{
+    if(t)
+    {
+        midBT(t->lchild);
+        visit(t->data);
+        midBT(t->rchild);
+    }
+}
+void endBT(bitree t)
+{
+    if(t)
+        endBT(t->lchild);
+        endBT(t->rchild);
+        visit(t->data);
+}
+int main()
+{
+    bitree t1;
+    tree(&t1);
+    printf("ÏÈÐò±éÀú:");
+    firstBT(t1);
+    printf("\n");
+    printf("ÖÐÐò±éÀú:");
+    midBT(t1);
+    printf("\n");
+    printf("ºóÐò±éÀú:");
+    endBT(t1);
+    return 0;
+}
