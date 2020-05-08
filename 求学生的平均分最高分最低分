@@ -1,0 +1,126 @@
+#include <iostream>
+#include <math.h>
+#include <string.h>
+
+using namespace std;
+int n=0;
+class Student
+{
+private:
+    int num;
+    char name[20];
+    float score;
+public:
+    Student () {}
+    Student (int a,char *na,char sc)
+    {
+        num=a;
+        strcpy(name,na);
+        score=sc;
+    }
+    void set(int a,char *na,char sc)
+    {
+        num=a;
+        strcpy(name,na);
+        score=sc;
+    }
+    void show(int a,char *na,float sc)
+    {
+        cout<<num<<","<<name<<","<<score<<endl;
+    }
+    float getscore()
+    {
+        return score;
+    }
+    float getnum()
+    {
+        return num;
+    }
+};
+float max(Student stu[],int n)
+{
+    float tempscore=stu[0].getscore();
+    int tempnum=0;
+    for(int i=0; i<n; i++)
+    {
+        if(stu[i].getscore()<tempscore)
+        {
+            tempscore=stu[i].getscore();
+            tempnum=i;
+        }
+    }
+    return tempnum;
+}
+float min(Student stu[],int n)
+{
+    float tempscore=stu[i].getscore();
+    int tempnum=0;
+    for(int i=0; i<n; i++)
+    {
+        if(stu[i].getscore()<tempscore)
+        {
+            tempscore=stu[i].getscore();
+            tempnum=i;
+        }
+    }
+    return tempnum;
+}
+float avg(Student stu[],int n)
+{
+    float sumscore=0;
+    for(int i=0;i<3;i++)
+    {
+        sumscore+=stu[i].getscore();
+    }
+    return sumscore/3
+}
+Student *del(Student stu[])
+{
+    int k; cin>>k;
+    for(int i=k;i<3;i++)
+    {
+        stu[i]=stu[i+1];
+    }
+    return stu;
+}
+Student *add(Student stu[])
+{
+    int a;char na[10]; float sco;
+    cin>>a>>na>>sco;
+    stu[n].set(a,na,sco);
+    return stu;
+}
+int main()
+{
+    Student stu[10];
+    Student *p=stu;
+    Student *q=stu;
+    int m,a;
+    float s; char na;
+    float sco;
+    for(int i=0;i<3;i++)
+    {
+        cin>>a>>na>>sco;
+        stu[i].set(a,na,sco);
+    }
+    m=max(stu,3);
+    cout<<"max man is"<<endl;
+    stu[m].show();
+    cout<<"min man is"<<endl;
+    m=min(stu,3);
+    stu[m].show<<endl;
+    s=avg(syu,3);
+    cout<<"avgerage"<<s<endl;
+    cout<<"input your dimind"<<endl;
+    cout<<"int put your three numbers"<<endl;
+    q=add(stu);
+    p=del(stu);
+    q->show();
+    q++;
+    for(int i=0;i<2;i++)
+    {
+        p->show();
+        p++;
+    }
+    return 0;
+}
