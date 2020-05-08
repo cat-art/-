@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+template<class T>    //函数模板对类
+T min(T a[],int n) //定义函数类的模板
+{
+    int i;
+    T minv=a[0];
+    for(i=0;i<n;i++)
+    {
+        if(minv>a[i])
+        {
+            minv=a[i];
+        }
+    }
+    return minv;
+}
+int main()
+{
+    int a[]={1,3,9,6,5,4,2};
+    double b[]={1.2,77,3.4,0.7,2.4};
+    cout<<"The min is "<<min(a,7)<<endl;   //在这个初始数组中的最小值
+    cout<<"The min is "<<min(b,5)<<endl;
+    return 0;
+}
