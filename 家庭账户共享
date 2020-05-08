@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+float sum=0;
+class family
+{
+private:
+    char name[20];
+public:
+    family() {}
+    family(char *na)
+    {
+        strcpy(name,na);
+    }
+    void save(int n)
+    {
+        sum+=n;
+    }
+    void pay(int n)
+    {
+        sum-=n;
+    }
+    void show()
+    {
+        cout<<name<<""<<sum<<endl;
+    }
+};
+int main()
+{
+    family husband("yang:");
+    family wife("li:");
+    husband.save(10000);
+    wife.pay(7000);
+    wife.save(3000);
+    wife.show();
+    husband.show();
+    return 0;
+}
